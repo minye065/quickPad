@@ -70,7 +70,16 @@
         }
       },
       "diff_pair_dimensions": [],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "lib_footprint_issues|57000000|75500000|41ef1154-a55a-44d8-8afa-570f7958e8b5|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "track_dangling|85500000|90000000|ac23d1be-dc0f-474d-b4e5-cfd791e3475f|00000000-0000-0000-0000-000000000000",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },

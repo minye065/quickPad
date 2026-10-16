@@ -1133,6 +1133,16 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 107.95) (xy 39.37 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fd815e1-580e-43b5-b7e2-e9c12d58df7d")
+	)
+	(wire
+		(pts
 			(xy 24.13 96.52) (xy 57.15 96.52)
 		)
 		(stroke
@@ -1140,16 +1150,6 @@
 			(type default)
 		)
 		(uuid "12d3bfe5-b7da-459d-ae39-2f26c0557064")
-	)
-	(wire
-		(pts
-			(xy 109.22 88.9) (xy 106.68 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1c0e14cf-b1ff-4652-90cf-80fe689e78f5")
 	)
 	(wire
 		(pts
@@ -1173,7 +1173,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 96.52) (xy 106.68 96.52)
+			(xy 97.79 96.52) (xy 99.06 96.52)
 		)
 		(stroke
 			(width 0)
@@ -1223,13 +1223,13 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 88.9) (xy 106.68 96.52)
+			(xy 99.06 96.52) (xy 99.06 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "586cdbb5-a498-4ff6-bcf5-fb325c00bf9f")
+		(uuid "5f8253e6-a410-4e47-bc25-4adb82cf100a")
 	)
 	(wire
 		(pts
@@ -1303,6 +1303,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 107.95) (xy 39.37 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e2bde4a-7bf9-4874-a969-64f8465f8fcf")
+	)
+	(wire
+		(pts
 			(xy 119.38 166.37) (xy 119.38 163.83)
 		)
 		(stroke
@@ -1343,16 +1353,6 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 101.6) (xy 39.37 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b119c852-ce1a-4f02-bb10-c6f917da9173")
-	)
-	(wire
-		(pts
 			(xy 55.88 152.4) (xy 55.88 99.06)
 		)
 		(stroke
@@ -1373,13 +1373,13 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 101.6) (xy 104.14 101.6)
+			(xy 52.07 163.83) (xy 52.07 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b70e453d-45ba-4894-8815-455d0be4dcc6")
+		(uuid "b70cc7d4-1736-4e00-b0b8-4ba15b985c51")
 	)
 	(wire
 		(pts
@@ -1410,6 +1410,16 @@
 			(type default)
 		)
 		(uuid "c173a9b8-d1c2-42ed-980a-6e9c1c6c7708")
+	)
+	(wire
+		(pts
+			(xy 52.07 101.6) (xy 57.15 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ced2c40a-f903-4fcd-bc78-b6247968badd")
 	)
 	(wire
 		(pts
@@ -1453,16 +1463,6 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 101.6) (xy 104.14 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d9e65164-4135-424f-8e65-fd8f980f6ccf")
-	)
-	(wire
-		(pts
 			(xy 54.61 93.98) (xy 57.15 93.98)
 		)
 		(stroke
@@ -1473,7 +1473,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 163.83) (xy 104.14 163.83)
+			(xy 52.07 163.83) (xy 109.22 163.83)
 		)
 		(stroke
 			(width 0)
@@ -1500,16 +1500,6 @@
 			(type default)
 		)
 		(uuid "fa2480cf-683f-40ee-888d-3464fa1ccae2")
-	)
-	(wire
-		(pts
-			(xy 39.37 101.6) (xy 39.37 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fccbd70b-6688-4b37-85c7-91c0513c1163")
 	)
 	(symbol
 		(lib_id "XIAO_RP2040:MOUDLE-SEEEDUINO-XIAO")
