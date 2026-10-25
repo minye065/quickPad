@@ -524,9 +524,9 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../Production/",
       "specctra_dsn": "",
-      "step": "quickpadPCM.step",
+      "step": "../../../Users/beest/Downloads/quickpadPCM.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
