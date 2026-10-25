@@ -1,4 +1,5 @@
 import os
+import socket
 import subprocess
 import threading
 import time
@@ -8,26 +9,21 @@ PRODUCT_ID = 0x0000
 USAGE_PAGE = 0xFF60
 USAGE = 0x61
 REPORT_SIZE = 32
+LOCK_PORT = 47653
 EVENT_KEY = 0x01
-EVENT_KNOB = 0x02
 EVENT_STATE = 0x03
-EVENT_SYNC = 0x04
-KNOB_CLOCKWISE = 0x01
-KEY_TL = 0
-KEY_TM = 1
-KEY_TR = 2
-KEY_ML = 3
-KEY_MM = 4
-KEY_MR = 5
-KEY_BL = 6
-KEY_BM = 7
-KEY_BR = 8
-MODES = ["base", "file", "clock"]
+CODE_TEMPORARY = 0
+CODE_EMPTY_RECYCLE_BIN = 1
+CODE_OPEN_ZEN_WINDOWS = 2
+CODE_START_WORK_TIMER = 3
+CODE_START_REST_TIMER = 4
+CODE_END_TIMERS = 5
+STATES = ["base", "file", "clock"]
 WORK_MINUTES = 25
 REST_MINUTES = 8
 ZEN_WINDOW_COUNT = 3
 
-state = {"mode": 0, "timer": None}
+state = {"timer": None}
 
 def runCommand(command, wait=False):
     startupInfo = subprocess.STARTUPINFO()
@@ -84,19 +80,13 @@ def temporary():
     notify("TEMPORARY")
 
 
-ACTIONS = {0: {KEY_TM: temporary, KEY_TR: temporary, KEY_ML: temporary, KEY_MM: temporary, KEY_MR: temporary, KEY_BL: temporary, KEY_BM: temporary, KEY_BR: temporary}, 1: {KEY_TM: emptyRecycleBin, KEY_TR: openZenWindows, KEY_ML: temporary, KEY_MM: temporary, KEY_MR: temporary, KEY_BL: temporary, KEY_BM: temporary, KEY_BR: temporary}, 2: {KEY_TM: startWorkTimer, KEY_TR: startRestTimer, KEY_ML: endTimers, KEY_MM: temporary, KEY_MR: temporary, KEY_BL: temporary, KEY_BM: temporary, KEY_BR: temporary}}
-
-def setMode(mode):
-    state["mode"] = mode % len(MODES)
-    notify("Mode changed to " + MODES[state["mode"]])
+ACTIONS = {CODE_TEMPORARY: temporary, CODE_EMPTY_RECYCLE_BIN: emptyRecycleBin, CODE_OPEN_ZEN_WINDOWS: openZenWindows, CODE_START_WORK_TIMER: startWorkTimer, CODE_START_REST_TIMER: startRestTimer, CODE_END_TIMERS: endTimers}
 
 def handleEvent(eventType, value):
     if eventType == EVENT_STATE:
-        setMode(value)
-    elif eventType == EVENT_SYNC:
-        state["mode"] = value % len(MODES)
+        notify("Mode changed to " + STATES[value % len(STATES)])
     elif eventType == EVENT_KEY:
-        action = ACTIONS[state["mode"]].get(value)
+        action = ACTIONS.get(value)
         if action:
             threading.Thread(target=action, daemon=True).start()
 
@@ -108,9 +98,6 @@ def openDevice():
             return device
     return None
 
-def requestSync(device):
-    device.write(bytes([0, EVENT_SYNC]) + bytes(REPORT_SIZE - 1))
-
 def listen():
     while True:
         device = openDevice()
@@ -118,7 +105,6 @@ def listen():
             time.sleep(2)
             continue
         try:
-            requestSync(device)
             while True:
                 data = device.read(REPORT_SIZE, 500)
                 if data:
@@ -129,6 +115,11 @@ def listen():
             device.close()
 
 def main():
+    lock = socket.socket()
+    try:
+        lock.bind(("127.0.0.1", LOCK_PORT))
+    except OSError:
+        return
     try:
         listen()
     except KeyboardInterrupt:
