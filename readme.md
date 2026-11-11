@@ -12,6 +12,11 @@ It has not been designed so that someone else would be able to use it,
 ![PCB](https://cdn.hackclub.com/01a170e3-c0c4-7aef-b305-0d0176aaecb1/image.png)
 ![Schematic](https://cdn.hackclub.com/01a17100-63bf-730e-834f-edfe9f8d9a40/image.png)
 ![CAD](https://cdn.hackclub.com/01a17100-be76-7c33-8afb-9e5514f2b9a7/image.png)
+![More cad1](https://cdn.hackclub.com/01a1c89f-94b4-7d4d-8787-a29f66451a01/image.png)
+![More cad2](https://cdn.hackclub.com/01a1c89f-97ea-7989-847b-070729c1c0d7/image.png)
+![More cad3](https://cdn.hackclub.com/01a1c89f-9bd3-7de6-bb34-0d62fef16ca3/image.png)
+![More cad4](https://cdn.hackclub.com/01a1c89f-9d89-77c5-aab2-71025ca42610/image.png)
+
 
 BOM
 --
